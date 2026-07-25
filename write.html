@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write for THUMOS</title>
+<meta name="description" content="THUMOS is looking for contributors — essays, criticism, reportage, poetry, book reviews and arguments we have not thought of yet. Pitch us here.">
+
+<link rel="canonical" href="https://thumospress.com/write.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="THUMOS">
+<meta property="og:title" content="Write for THUMOS">
+<meta property="og:description" content="Always on the lookout for essays, criticism, reportage, poetry, book reviews and arguments we have not thought of yet. Tell us your idea.">
+<meta property="og:url" content="https://thumospress.com/write.html">
+<meta property="og:image" content="https://thumospress.com/assets/icon-512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@THUMOSPRESS">
+<meta name="twitter:title" content="Write for THUMOS">
+<meta name="twitter:description" content="We are looking for contributors. Tell us your idea.">
+<meta name="twitter:image" content="https://thumospress.com/assets/icon-512.png">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#EBE8E1">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand small" href="./">
+    <svg class="mono" viewBox="4 2 112 92" role="img" aria-label="THUMOS">
+      <g class="mono-a">
+        <rect x="8" y="8" width="52" height="15"/>
+        <rect x="8" y="8" width="9" height="26"/>
+        <rect x="44" y="8" width="14" height="80"/>
+        <rect x="30" y="78" width="36" height="12"/>
+      </g>
+      <g class="mono-b">
+        <rect x="60" y="8" width="52" height="15"/>
+        <rect x="103" y="8" width="9" height="26"/>
+        <rect x="62" y="8" width="14" height="80"/>
+        <rect x="54" y="78" width="36" height="12"/>
+      </g>
+    </svg>
+    <span class="brand-word">THUMOS</span>
+  </a>
+</header>
+
+<!-- ============ Intro ============ -->
+<section class="intro-band">
+  <div class="col">
+
+    <!-- If the file is missing the figure hides itself rather than
+         leaving a broken-image box on the page. -->
+    <figure class="poster">
+      <img src="assets/young-sensitive-man.jpg"
+           width="880" height="880"
+           alt="Recruitment poster: Uncle Sam points at the reader above the words “Are you a young sensitive man?”"
+           onerror="this.closest('.poster').hidden = true">
+    </figure>
+
+    <h1 class="page-title">Write for THUMOS</h1>
+
+    <p>
+      Are <span class="you">YOU</span> a young sensitive man anon? THUMOS is a new
+      periodical always on the lookout for chuds of all make and model to write for
+      us and bedazzle our tasteful patrons. Essays, criticism, reportage, poetry,
+      book reviews, a history lesson and arguments we have not thought of yet. If
+      you have an idea for a piece, or even for a new section or a regular feature,
+      don’t hesitate to get in touch using the form below.
+    </p>
+
+    <p>
+      Generally the limit for an essay is 3,000 words; although we will happily
+      accept longer, and (much) shorter, where the piece earns it.
+    </p>
+  </div>
+</section>
+
+<div class="hard-rule"></div>
+
+<!-- ============ Form ============ -->
+<section class="form-band">
+  <div class="col">
+
+    <form id="pitch-form"
+          action="https://formsubmit.co/submission@thumospress.com"
+          method="POST"
+          novalidate>
+
+      <!-- Bot trap: real people never see or fill this. -->
+      <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="_subject" value="THUMOS — new pitch">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+
+      <fieldset class="field">
+        <legend class="lab">I have an idea for a <span class="req">*</span></legend>
+        <div class="radios">
+          <label class="radio">
+            <input type="radio" name="Idea for" value="Stand Alone Essay">
+            <span>Stand Alone Essay</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="Idea for" value="New Section">
+            <span>New Section</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="Idea for" value="Regular Feature">
+            <span>Regular Feature</span>
+          </label>
+        </div>
+        <div class="err" data-err="idea"></div>
+      </fieldset>
+
+      <div class="field">
+        <label class="lab" for="description">Short description <span class="req">*</span></label>
+        <textarea id="description" name="Description" rows="7"></textarea>
+        <div class="err" data-err="description"></div>
+      </div>
+
+      <div class="field">
+        <label class="lab" for="email">Email <span class="req">*</span></label>
+        <input id="email" name="Email" type="email" autocomplete="email">
+        <div class="err" data-err="email"></div>
+      </div>
+
+      <button class="btn-red submit" type="submit" id="pitch-submit">Submit</button>
+
+      <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+    </form>
+
+    <div class="thanks" id="thanks" hidden>
+      <div class="thanks-t">Thank you — your idea is with us.</div>
+      <div class="thanks-d">
+        We read everything that comes in and reply when a piece is right for us.
+        If you would rather write to a person, we are at
+        <a href="mailto:submission@thumospress.com">submission@thumospress.com</a>.
+      </div>
+      <a class="btn-ghost" href="./">← Back to THUMOS</a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="col foot-inner">
+    <span>© 2026 THUMOS</span>
+    <a href="https://x.com/THUMOSPRESS" target="_blank" rel="noopener noreferrer">@THUMOSPRESS</a>
+  </div>
+</footer>
+
+<script src="js/form.js"></script>
+<script src="js/cleanup.js"></script>
+</body>
+</html>

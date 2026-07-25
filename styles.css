@@ -1,0 +1,397 @@
+/* ============================================================
+   THUMOS — holding page + submissions
+   ============================================================ */
+
+:root {
+  --ink: #16171C;
+  --paper: #EBE8E1;
+  --cream: #F5F2EC;
+  --white: #FFFFFF;
+  --body-ink: #34383F;
+  --gray: #5E636A;
+  --border: #C7C1B4;
+  --red: #CE1126;
+  --red-hot: #E11B31;
+  --on-red: #F5F2EC;
+
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--red); color: var(--on-red); }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+/* Centred reading column, shared by both pages. */
+.col { max-width: 620px; margin: 0 auto; padding: 0 24px; }
+
+/* ============ Brand ============ */
+
+/* The monogram has ONE colourway: ink T + red T, on a light ground.
+   Never recolour it to suit a background — if a background fights the
+   logo, change the background. Every surface the logo sits on is light
+   for exactly this reason. */
+.brand { display: inline-flex; align-items: center; gap: 12px; }
+.brand .mono { height: 54px; width: auto; display: block; }
+.brand .mono-a { fill: var(--ink); }
+.brand .mono-b { fill: var(--red); }
+.brand .brand-word {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 50px;
+  letter-spacing: -.01em;
+  line-height: .8;
+}
+.brand.small .mono { height: 32px; }
+.brand.small .brand-word { font-size: 29px; }
+
+/* ============ Holding page ============ */
+
+body.holding { background: var(--paper); color: var(--ink); }
+
+.holding-wrap {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+/* Poster on the left, brand and copy stacked on the right. The poster
+   spans both rows so it stays optically centred against the text. */
+.holding-inner {
+  max-width: 960px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  grid-template-areas:
+    "poster brand"
+    "poster copy";
+  align-content: center;
+  column-gap: 56px;
+  text-align: left;
+}
+
+.hb-poster { grid-area: poster; align-self: center; margin: 0; }
+.hb-poster[hidden] { display: none; }
+.hb-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 18px 44px rgba(22, 23, 28, .24);
+}
+
+.hb-brand { grid-area: brand; }
+.hb-copy { grid-area: copy; margin-top: 26px; }
+
+.brand-rule {
+  width: 64px;
+  height: 3px;
+  background: var(--red);
+  margin: 26px 0 0;
+}
+.brand-tag {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 18px;
+}
+
+.holding-title {
+  font-weight: 700;
+  font-size: 68px;
+  line-height: 1;
+  letter-spacing: -.03em;
+  margin: 22px 0 0;
+}
+.holding-dek {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--body-ink);
+  margin: 18px 0 0;
+  max-width: 480px;
+  text-wrap: pretty;
+}
+
+.definition {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 20px 18px;
+  margin: 34px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--body-ink);
+}
+.definition .def-word { font-weight: 700; color: var(--ink); }
+.definition .def-greek { color: var(--red); margin-left: 6px; }
+.definition .def-pos { font-style: italic; margin-left: 6px; color: var(--gray); }
+.definition .def-body { display: block; margin-top: 6px; }
+
+.holding-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.holding-foot {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 44px;
+}
+
+/* ============ Buttons ============ */
+
+.btn-red,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: 14px 26px;
+  border: 1.5px solid transparent;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn-red { background: var(--red); color: var(--on-red); }
+.btn-red:hover { background: var(--red-hot); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* ============ Write page ============ */
+
+.topbar {
+  background: var(--cream);
+  padding: 18px 24px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.intro-band { background: var(--cream); padding: 46px 0 40px; }
+
+/* The poster carries its own red-and-black border, so it needs no frame
+   here — its cream ground sits almost flush with the page. */
+.poster { margin: 0 0 34px; }
+.poster[hidden] { display: none; }
+.poster img {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 26px;
+  text-wrap: balance;
+}
+.intro-band p {
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--body-ink);
+  margin: 0 0 18px;
+}
+/* Picks up the red "YOU" from the poster directly above. */
+.intro-band .you { color: var(--red); font-weight: 600; }
+.intro-band p:last-child { margin-bottom: 0; }
+
+.hard-rule { border-top: 1px solid var(--ink); }
+
+.form-band { background: var(--paper); padding: 38px 0 54px; }
+
+/* ============ Form ============ */
+
+.field { margin: 0 0 26px; padding: 0; border: 0; }
+
+.lab {
+  display: block;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+  padding: 0;
+}
+.req { color: var(--red); }
+
+.radios { display: flex; flex-wrap: wrap; gap: 10px 26px; }
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--body-ink);
+  cursor: pointer;
+}
+.radio input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 1.5px solid var(--gray);
+  border-radius: 50%;
+  background: var(--white);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: border-color .15s ease;
+}
+.radio input::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: scale(0);
+  background: var(--red);
+  transition: transform .12s ease;
+}
+.radio input:checked { border-color: var(--red); }
+.radio input:checked::before { transform: scale(1); }
+.radio:hover input { border-color: var(--red); }
+
+textarea,
+input[type="email"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.55;
+  transition: border-color .15s ease;
+}
+textarea { resize: vertical; min-height: 130px; display: block; }
+textarea:focus,
+input[type="email"]:focus { border-color: var(--red); outline: none; }
+.field.bad textarea,
+.field.bad input[type="email"] { border-color: var(--red); }
+
+.err {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--red);
+  min-height: 16px;
+  margin-top: 6px;
+}
+
+.submit { margin-top: 4px; border: 0; cursor: pointer; }
+.submit[disabled] { opacity: .6; cursor: progress; }
+
+.form-status {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gray);
+  margin-top: 14px;
+  min-height: 20px;
+}
+.form-status.bad { color: var(--red); }
+
+/* Honeypot — off-screen, never focusable. */
+.honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ============ Thank you ============ */
+
+.thanks {
+  border-left: 4px solid var(--red);
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 30px 30px 32px;
+}
+.thanks[hidden] { display: none; }
+.thanks-t { font-weight: 700; font-size: 27px; line-height: 1.15; }
+.thanks-d { font-size: 16.5px; line-height: 1.6; color: var(--body-ink); margin-top: 10px; }
+.thanks-d a { color: var(--red); font-weight: 600; }
+.thanks .btn-ghost { margin-top: 20px; }
+
+/* ============ Footer ============ */
+
+.foot { background: var(--ink); color: #8A9098; padding: 20px 0; }
+.foot-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.foot a { color: var(--red-hot); }
+.foot a:hover { color: var(--paper); }
+
+/* ============ Responsive ============ */
+
+/* Below this the two columns stack and the page re-centres. */
+@media (max-width: 860px) {
+  .holding-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "poster"
+      "copy";
+    max-width: 480px;
+    column-gap: 0;
+    text-align: center;
+  }
+  .hb-poster { margin: 32px auto 0; max-width: 300px; }
+  .hb-copy { margin-top: 30px; }
+  .brand-rule { margin-left: auto; margin-right: auto; }
+  .holding-dek { margin-left: auto; margin-right: auto; }
+  .holding-actions { justify-content: center; }
+}
+
+@media (max-width: 620px) {
+  .brand .mono { height: 42px; }
+  .brand .brand-word { font-size: 38px; }
+  .holding-title { font-size: 46px; }
+  .holding-dek { font-size: 17px; }
+  .page-title { font-size: 29px; }
+  .holding-actions { flex-direction: column; }
+  .holding-actions .btn-red,
+  .holding-actions .btn-ghost { justify-content: center; }
+  .radios { flex-direction: column; gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .001ms !important; }
+}

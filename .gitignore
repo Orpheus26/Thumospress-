@@ -1,0 +1,10 @@
+# Local editor / agent config — not part of the site
+.claude/
+
+# Windows & OneDrive junk
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# macOS junk, in case anyone else clones this
+.DS_Store
